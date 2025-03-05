@@ -4,23 +4,35 @@ import { LinearGradient } from 'expo-linear-gradient';
 export default function StudentIDCard() {
   return (
     <LinearGradient colors={['white', 'yellow', 'green']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.smallText}>Republic of the Philippines</Text>
-        <Text style={styles.largeText}>CEBU TECHNOLOGICAL</Text>
-        <Text style={styles.largeText}>UNIVERSITY</Text>
-        <Text style={styles.mediumText}>Main Campus: M.J. Cuenco Ave., Cebu City</Text>
+      <View style={styles.headerContainer}>
+        <View style={styles.logoContainer}>
+          <Image source={require('../../assets/images/CTU-logo.png')} style={styles.ctuLogo} resizeMode="contain"/>
+          <Image source={require('../../assets/images/asean-logo.png')} style={styles.aseanLogo} resizeMode="contain"/>
+        </View>
+        <View style={styles.headerText}>
+          <Text style={styles.smallText}>Republic of the Philippines</Text>
+          <Text style={styles.largeText}>CEBU TECHNOLOGICAL</Text>
+          <Text style={styles.largeText}>UNIVERSITY</Text>
+          <Text style={styles.mediumText}>
+            <Text style={styles.boldText}>Main Campus:</Text> M.J. Cuenco Avenue corner R. Palma St., Cebu City,
+          </Text>
+        </View>
       </View>
-      
-      <View style={styles.photoContainer}>
-        <Image source={require('assets/images/profile.jpg')} style={styles.photo} />
+
+      <View style={styles.photoWrapper}>
+        <View style={styles.photoContainer}>
+          <Image source={require('../../assets/images/profile.jpg')} style={styles.photo} resizeMode="cover"/>
+        </View>
       </View>
-      
+
       <View style={styles.infoContainer}>
         <Text style={styles.nameText}>CHARLES JAYSON M. MACAN</Text>
         <Text style={styles.courseText}>BSIT</Text>
         <View style={styles.divider}></View>
         <Text style={styles.labelText}>COURSE</Text>
-        <Text style={styles.idText}>ID No.: 1314960</Text>
+        <Text style={styles.idText}>
+          <Text style={styles.normalText}>ID No.:</Text> 1314960
+        </Text>
       </View>
     </LinearGradient>
   );
@@ -30,41 +42,69 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     padding: 16,
   },
-  header: {
+  headerContainer: {
+    flexDirection: 'row', 
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 20,
+    marginTop: 50,
+  },
+  logoContainer: {
+    flexDirection: 'column', 
+    alignItems: 'center',
+    marginRight: 10, 
+  },
+  ctuLogo: {
+    width: 60, 
+    height: 60,
+    marginBottom: 5,
+  },
+  aseanLogo: {
+    width: 50, 
+    height: 50,
+    marginBottom: 5,
+  },
+  headerText: {
+    flex: 1,
   },
   smallText: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: '500',
   },
   largeText: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',
+    fontFamily: 'times new roman'
   },
   mediumText: {
-    fontSize: 10,
-    textAlign: 'center',
+    fontSize: 14,
+  },
+  boldText: {
+    fontWeight: 'bold',
+  },
+  normalText: {
+    fontWeight: 'normal',
   },
   photo: {
-    width: 100,  
-    height: 120, 
-    resizeMode: 'cover', 
-    borderRadius: 10, 
+    width: 150,  
+    height: 182, 
+    resizeMode: 'cover',  
   },
+  photoWrapper: {
+    alignItems: 'center',
+    marginBottom: 50,
+  },  
   photoContainer: {
-    width: 128,
-    height: 160,
+    width: 150,
+    height: 182,
     backgroundColor: 'white',
     borderWidth: 2,
-    borderColor: 'gray',
-    justifyContent: 'center',
+    borderColor: 'black',
     alignItems: 'center',
-    marginBottom: 10,
+    overflow: 'hidden',
+    alignSelf: 'center', 
   },
   infoContainer: {
     alignItems: 'center',
@@ -91,11 +131,5 @@ const styles = StyleSheet.create({
   idText: {
     fontSize: 14,
     fontWeight: 'bold',
-  },
-  footer: {
-    width: '100%',
-    height: 40,
-    backgroundColor: 'blue',
-    marginTop: 10,
   },
 });
