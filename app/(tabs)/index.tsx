@@ -5,10 +5,12 @@ export default function StudentIDCard() {
   return (
     <LinearGradient colors={['white', 'yellow', 'green']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.container}>
       <View style={styles.headerContainer}>
+
         <View style={styles.logoContainer}>
           <Image source={require('../../assets/images/CTU-logo.png')} style={styles.ctuLogo} resizeMode="contain"/>
           <Image source={require('../../assets/images/asean-logo.png')} style={styles.aseanLogo} resizeMode="contain"/>
         </View>
+        
         <View style={styles.headerText}>
           <Text style={styles.smallText}>Republic of the Philippines</Text>
           <Text style={styles.largeText}>CEBU TECHNOLOGICAL</Text>
