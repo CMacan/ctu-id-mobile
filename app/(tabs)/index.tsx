@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
   nameText: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom:5,
   },
   courseText: {
     fontSize: 16,
@@ -127,6 +128,7 @@ const styles = StyleSheet.create({
   },
   labelText: {
     fontSize: 10,
+    marginBottom:10,
   },
   idText: {
     fontSize: 14,
