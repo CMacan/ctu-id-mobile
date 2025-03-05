@@ -1,74 +1,143 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, View, Text } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+export default function StudentIDCard() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <LinearGradient colors={['white', 'yellow', 'green']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.smallText}>Republic of the Philippines</Text>
+        <Text style={styles.largeText}>CEBU TECHNOLOGICAL</Text>
+        <Text style={styles.largeText}>UNIVERSITY</Text>
+        <Text style={styles.mediumText}>Main Campus: M.J. Cuenco Ave., Cebu City</Text>
+      </View>
+      
+      <View style={styles.photoContainer}>
+        <Text style={styles.photoText}>Photo</Text>
+      </View>
+      
+      <View style={styles.infoContainer}>
+        <Text style={styles.nameText}>CHARLES JAYSON M. MACAN</Text>
+        <Text style={styles.courseText}>BSIT</Text>
+        <View style={styles.divider}></View>
+        <Text style={styles.labelText}>COURSE</Text>
+        <Text style={styles.idText}>ID No.: 1314960</Text>
+      </View>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
     alignItems: 'center',
-    gap: 8,
+    justifyContent: 'center',
+    padding: 16,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  header: {
+    alignItems: 'center',
+    marginBottom: 10,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  smallText: {
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  largeText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  mediumText: {
+    fontSize: 10,
+    textAlign: 'center',
+  },
+  logoContainer: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 10,
+  },
+  logoOuter: {
+    width: 48,
+    height: 48,
+    backgroundColor: 'red',
+    borderRadius: 24,
+    borderWidth: 2,
+    borderColor: 'yellow',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logoInner: {
+    width: 32,
+    height: 32,
+    backgroundColor: 'white',
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logoText: {
+    fontSize: 6,
+    textAlign: 'center',
+  },
+  logoYellow: {
+    width: 32,
+    height: 32,
+    backgroundColor: 'yellow',
+    borderRadius: 16,
+  },
+  photoContainer: {
+    width: 128,
+    height: 160,
+    backgroundColor: 'white',
+    borderWidth: 2,
+    borderColor: 'gray',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  photoText: {
+    color: 'gray',
+    fontSize: 10,
+  },
+  signatureContainer: {
+    borderBottomWidth: 1,
+    borderColor: 'black',
+    width: 120,
+    alignItems: 'center',
+    marginBottom: 5,
+  },
+  signature: {
+    fontStyle: 'italic',
+    fontSize: 14,
+  },
+  infoContainer: {
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  nameText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  courseText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  divider: {
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderColor: 'black',
+    width: 120,
+    marginVertical: 5,
+  },
+  labelText: {
+    fontSize: 10,
+  },
+  idText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  footer: {
+    width: '100%',
+    height: 40,
+    backgroundColor: 'blue',
+    marginTop: 10,
   },
 });
